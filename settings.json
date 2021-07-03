@@ -1,0 +1,18 @@
+{
+    "verbosity": 2, // level: 0=log file, 1=print dirs, 2=print files, 3=print json
+    "exceptions": true, // process files only if they are not in the exceptions list
+    "soft": true, // does not resize, only compresses to 80 percent quality
+    "no_db": false, // does not save the process in the database
+    "temp": true, // processes the images, without modifying them in the source folder
+    "source_dir": "",
+    "temp_dir": "",
+    "log": "/logs/jobs.log",
+    "params": {
+        "min_mod_time": 28800, // modified at leat 28800 sec / 8 hs ago
+        "min_source_size": 102400, // source must be bigger than 100 kb
+        "min_target_size": 102400, // compressed image must be bigger than 102400 bytes (100 kb)
+        "min_target_saving_size": 1, // source - target size must be > 1
+        "min_target_saving_percent": 15, // saving is positive and > 15 percent
+        "exceptions": "foldername|[a-wy-z]\\d{1,3}|tmp3"
+    }
+}
