@@ -140,10 +140,7 @@ if __name__ == "__main__":
             logger.info(f"Compressed size: {compressor.Compressor.convert_unit(job_new_size)} ({compressor.Compressor.convert_unit(job.status['totalSaved'])} saved)")        
             logger.info(f"Time: {int(job_time.total_seconds())}s")
 
-        if conf.settings["temp"] is True and os.path.exists(conf.settings["temp_dir"]):
-            shutil.rmtree(conf.settings["temp_dir"], ignore_errors=True)
+        shutil.rmtree(conf.settings["temp_dir"], ignore_errors=True) if conf.settings["temp"] is True and os.path.exists(conf.settings["temp_dir"]) else pass
+            
 
-    if conf.settings["verbosity"] < 3:
-        logger.info("Process finished.\r\n")
-    else:
-        logger.info("]}")
+    logger.info("Process finished.\r\n") if conf.settings["verbosity"] < 3 else logger.info("]}")
